@@ -1,32 +1,36 @@
 ﻿using System;
 
-namespace Question1
+namespace Question2
 {
     class Program
     {
+        //Create a program that will take a min and a max value from user and print all the prime numbers between it
         static void Main(string[] args)
         {
-            int i;
-            int[] arr = new int[10];
+            int a, b, i, j, flag;
+            Console.WriteLine("Enter the minimum value: ");
+            a = int.Parse(Console.ReadLine());
+            Console.WriteLine("\nEnter the maximum value: ");
+            b = int.Parse(Console.ReadLine());
 
-            for (i = 0; i < 10; i++)
+            Console.WriteLine("\nThe Prime numbers between " + "{0} and {1} are: ", a, b);
+
+            for (i = a; i <= b; i++)
             {
-                Console.Write("\nEnter your number {0}:\t", i);
+                if (i == 1 || i == 0)
+                    continue;
+                flag = 1;
 
-                arr[i] = Convert.ToInt32(Console.ReadLine());
-            }
-            Console.WriteLine("\n\n");
-
-            Console.WriteLine("The numbers divisible by 7 are :");
-
-
-            for (i = 0; i < 10; i++)
-            {
-
-                if (arr[i] % 7 == 0)
+                for (j = 2; j <= i / 2; ++j)
                 {
-                    Console.WriteLine("{0}", arr[i]);
+                    if (i % j == 0)
+                    {
+                        flag = 0;
+                        break;
+                    }
                 }
+                if (flag == 1)
+                    Console.WriteLine(i);
             }
         }
     }
