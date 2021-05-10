@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Program6Project
+namespace Program7Project
 {
     class Program
     {
